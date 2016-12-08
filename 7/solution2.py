@@ -22,10 +22,6 @@ for ip in ips:
         if check_aba(parts[0][i:i+3]):
             bab = parts[0][i+1] + parts[0][i] + parts[0][i+1]
             if bab in parts[1]:
-                print parts[0][i:i+3]
-                print bab
-                print parts
-                print '\n'
                 count += 1
                 break
 
