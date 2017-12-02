@@ -1,6 +1,6 @@
 import scala.io.Source
 
-var captcha = Source.fromFile("../../../python/2017/1/data.txt").getLines.mkString * 2
+var captcha = Source.fromFile("../../../data/2017/1/data.txt").getLines.mkString * 2
 val n = captcha.length / 4
 var total = 0
 

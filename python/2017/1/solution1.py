@@ -1,4 +1,4 @@
-with open('./data.txt', 'rb') as f:
+with open('../../../data/2017/1/data.txt', 'rb') as f:
     captcha = f.read().strip()
 captcha += captcha[0]
 
