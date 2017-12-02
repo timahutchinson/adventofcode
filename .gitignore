@@ -93,3 +93,6 @@ ENV/
 
 # Ignore emacs backup files
 *~
+
+# Scala files
+*.log
