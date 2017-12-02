@@ -96,3 +96,9 @@ ENV/
 
 # Scala files
 *.log
+
+# Julia files
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+deps/deps.jl
