@@ -1,6 +1,6 @@
 from itertools import combinations
 
-with open('data.txt', 'rb') as f:
+with open('../../../data/2017/2/data.txt', 'rb') as f:
     rows = [map(int, row.strip().split('\t')) for row in f.readlines()]
 
 total = 0
