@@ -2,7 +2,8 @@ import re
 import random
 
 with open("../../../data/2017/7/data.txt", "rb") as f:
-    lines = [map(lambda x: x.strip().split(', '), re.split(" *-> *", re.sub("\(\d+\)", "", line.strip()))) for line in f.readlines()]
+    lines = [re.split(" *-> *", re.sub("\(\d+\)", "", line)) for line in f.readlines()]
+    lines = [map(lambda x: x.strip().split(', '), line) for line in lines]
 
 ind = random.randint(0,len(lines))
 program = lines[ind][0][0]
