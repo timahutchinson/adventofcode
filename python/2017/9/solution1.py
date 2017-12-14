@@ -7,7 +7,7 @@ with open("../../../data/2017/9/data.txt", "rb") as f:
 stream = re.sub('!.', '', stream)
 
 # Next, all garbage
-stream = re.sub('<[^>]*>', '', stream2)
+stream = re.sub('<[^>]*>', '', stream)
 
 # Score groups
 score = 0
