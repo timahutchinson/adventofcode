@@ -1,8 +1,6 @@
 with open("../../../data/2017/10/data.txt", "rb") as f:
     steps = map(int, f.read().strip().split(','))
 
-#steps = [3,4,1,5]
-
 nums = range(256)
 nnums = len(nums)
 pos = 0
@@ -21,7 +19,7 @@ for step in steps:
         nums[pos:pos + step] = templist_r
     pos += (step + skip)
     if pos > nnums:
-        pos -= nnums
+        pos = pos % nnums
     skip += 1
 
 print "Solution is %d" % (nums[0] * nums[1])
