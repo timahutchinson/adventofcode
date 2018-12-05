@@ -5,8 +5,6 @@ from operator import itemgetter
 import numpy as np
 import pandas as pd
 
-pd.set_option('display.max_columns', 500)
-
 pattern = re.compile("^\[(\d{4}\-\d{2}\-\d{2} \d{2}:\d{2})\] ([\w# ]+)")
 with open("../../../data/2018/4/data.txt") as f:
     lines = [pattern.findall(line.strip())[0] for line in f.readlines()]
