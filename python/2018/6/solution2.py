@@ -13,6 +13,5 @@ ymax = max(points, key=lambda x: x[1])[1]
 grid = np.dstack(np.meshgrid(np.arange(xmin, xmax),
                  np.arange(xmin, xmax))).reshape(-1, 2)
 dists = distance.cdist(points, grid, metric='cityblock')
-sum_dists = dists.sum(axis=0)
 
-print(np.where(sum_dists < 10000, 1, 0).sum())
+print(np.where(dists.sum(axis=0) < 10000, 1, 0).sum())
