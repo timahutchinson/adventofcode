@@ -1,5 +1,4 @@
 import re
-from sys import stdout
 
 import numpy as np
 from scipy.spatial.distance import cdist
@@ -10,13 +9,6 @@ def is_neighbor(p1, p2):
 
 
 def count_has_neighbors(points):
-    '''count = 0
-    for i in range(len(points)):
-        for j in range(i+1, len(points)):
-            if is_neighbor(points[i], points[j]):
-                count += 1
-                break
-    return count * 2'''
     count = 0
     npoints = points.shape[0]
     for i, point in enumerate(points):
@@ -37,10 +29,22 @@ with open("../../../data/2018/10/data.txt") as f:
     vels = np.array([val[2:] for val in lines])
 
 npoints = points.shape[0]
-i = 0
 while True:
-    stdout.write("\r%d" % i)
-    if count_has_neighbors(points) > (0.5 * npoints):
-        break
     points = time_step(points, vels)
-    i += 1
+    if count_has_neighbors(points) > (0.9 * npoints):
+        break
+
+xmin = min(points, key=lambda x: x[0])[0]
+xmax = max(points, key=lambda x: x[0])[0] + 2
+ymin = min(points, key=lambda x: x[1])[1]
+ymax = max(points, key=lambda x: x[1])[1] + 2
+
+newpoints = [list(point) for point in points]
+for j in range(ymin-1, ymax+2):
+    row = ""
+    for i in range(xmin-1, xmax+2):
+        if [i, j] in newpoints:
+            row += "#"
+        else:
+            row += "."
+    print(row)
